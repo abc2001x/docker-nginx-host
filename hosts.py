@@ -102,11 +102,12 @@ class DockerManager:
 			print hostMaps
 
 	def restartDns(self):
-		startDns='dnsmasq -q -8 /tmp/dnsmasq.log --port 53 -R -u root'
-		stopDns='kill $(cat /var/run/dnsmasq.pid)'
+		# startDns='dnsmasq -q -8 /tmp/dnsmasq.log --port 53 -R -u root'
+		# stopDns='kill $(cat /var/run/dnsmasq.pid)'
 
-		commands.getstatusoutput(stopDns)
-		commands.getstatusoutput(startDns)
+		# commands.getstatusoutput(stopDns)
+		# commands.getstatusoutput(startDns)
+		commands.getstatusoutput('ps ef|grep dnsmasq|awk "{print $1}"|grep -v grep|xargs kill')
 
 if __name__=='__main__':
 	dm = DockerManager()
