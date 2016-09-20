@@ -12,7 +12,7 @@ a proxy of docker for mac
 
 
 
-1.在宿主机mac上,安装并且dnsmasq
+1.在宿主机mac上,安装并且dnsmasq  (https://blog.netsh.org/posts/mac-os-x-dnsmasq_1762.netsh.html)
 2.设置泛解析域名 (如:address=/golf.com/127.0.0.1)
 
 3.build docker file,然后运行容器:

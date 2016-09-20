@@ -70,7 +70,16 @@ class DockerManager:
 			# print containerID,m
 			return False
 
-		return m[0]['NetworkSettings']['Networks']['bridge']['IPAddress']
+		networks = m[0]['NetworkSettings']['Networks']
+		ip=''
+
+		for k,v in networks.iteritems():
+			for kk,vv in v.iteritems():
+				if kk==u'IPAddress':
+					ip=vv
+					break
+
+		return ip
 
 	def write_host(self):
 		content = ''
