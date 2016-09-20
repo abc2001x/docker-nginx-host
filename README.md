@@ -10,7 +10,7 @@
 
 3. build docker file ,and run image:
 		
-		docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 80:80 yourImageName 
+		docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 80:80 --name host-center yourImageName 
 
 4. now , if you run a docker of http server on 80 port, you can visit the new container by container name,(like: YourContainerName.golf.com)
 

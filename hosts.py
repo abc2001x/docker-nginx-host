@@ -107,7 +107,7 @@ class DockerManager:
 
 		# commands.getstatusoutput(stopDns)
 		# commands.getstatusoutput(startDns)
-		commands.getstatusoutput('ps ef|grep dnsmasq|awk "{print $1}"|grep -v grep|xargs kill')
+		commands.getstatusoutput("ps ef|grep dnsmasq|grep -v grep|awk '{print $1}'|xargs kill")
 
 if __name__=='__main__':
 	dm = DockerManager()
