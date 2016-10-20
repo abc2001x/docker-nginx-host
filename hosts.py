@@ -70,16 +70,7 @@ class DockerManager:
 			# print containerID,m
 			return False
 
-		networks = m[0]['NetworkSettings']['Networks']
-		ip=''
-
-		for k,v in networks.iteritems():
-			for kk,vv in v.iteritems():
-				if kk==u'IPAddress':
-					ip=vv
-					break
-
-		return ip
+		return m[0]['NetworkSettings']['Networks']['bridge']['IPAddress']
 
 	def write_host(self):
 		content = ''
@@ -102,11 +93,6 @@ class DockerManager:
 			print hostMaps
 
 	def restartDns(self):
-		# startDns='dnsmasq -q -8 /tmp/dnsmasq.log --port 53 -R -u root'
-		# stopDns='kill $(cat /var/run/dnsmasq.pid)'
-
-		# commands.getstatusoutput(stopDns)
-		# commands.getstatusoutput(startDns)
 		commands.getstatusoutput("ps ef|grep dnsmasq|grep -v grep|awk '{print $1}'|xargs kill")
 
 if __name__=='__main__':
