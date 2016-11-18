@@ -9,6 +9,7 @@ RUN echo -e  "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/main\nhttps://mir
 	&& apk add --no-cache py-pip \
 	dnsmasq \
 	supervisor \
+	&& pip install --upgrade pip \
 	&& pip install -i https://pypi.tuna.tsinghua.edu.cn/simple docker-py \
 	&& rm -f /var/cache/apk/*
 
