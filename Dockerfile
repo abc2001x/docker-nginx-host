@@ -13,7 +13,7 @@ RUN echo -e  "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/main\nhttps://mir
 	&& pip install -i https://pypi.tuna.tsinghua.edu.cn/simple docker-py \
 	&& rm -f /var/cache/apk/*
 
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+COPY nginx.path.route.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /root/supervisord.conf
 
 COPY passport.abc.com.crt /nginx.crt
